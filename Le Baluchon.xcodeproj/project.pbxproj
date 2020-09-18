@@ -18,6 +18,8 @@
 		8FA394272514C875000D0AF4 /* TraductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA394262514C875000D0AF4 /* TraductionViewController.swift */; };
 		8FA394292514C895000D0AF4 /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA394282514C895000D0AF4 /* WheatherViewController.swift */; };
 		8FA3942B2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */; };
+		8FA3942D25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */; };
+		8FA3942E25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,7 @@
 		8FA394262514C875000D0AF4 /* TraductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraductionViewController.swift; sourceTree = "<group>"; };
 		8FA394282514C895000D0AF4 /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
 		8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerTableViewController.swift; sourceTree = "<group>"; };
+		8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeServiceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 		8FA3942325139A3E000D0AF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +299,7 @@
 				8FA393F225139537000D0AF4 /* ExchangeViewController.swift in Sources */,
 				8FA394292514C895000D0AF4 /* WheatherViewController.swift in Sources */,
 				8FA394272514C875000D0AF4 /* TraductionViewController.swift in Sources */,
+				8FA3942D25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */,
 				8FA393EE25139537000D0AF4 /* AppDelegate.swift in Sources */,
 				8FA393F025139537000D0AF4 /* SceneDelegate.swift in Sources */,
 			);
@@ -305,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FA394082513953D000D0AF4 /* Le_BaluchonTests.swift in Sources */,
+				8FA3942E25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
