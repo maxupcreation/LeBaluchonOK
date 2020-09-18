@@ -10,23 +10,51 @@
         <!--Traduction-->
         <scene sceneID="bQp-1o-veq">
             <objects>
-                <viewController id="t1K-B3-oMM" userLabel="Traduction" sceneMemberID="viewController">
+                <viewController id="t1K-B3-oMM" userLabel="Traduction" customClass="TraductionViewController" customModule="Le_Baluchon" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="84o-u5-J9I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fJI-SG-Of1">
+                                <rect key="frame" x="20" y="64" width="374" height="729"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-hm-wGn">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="232.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDQ-TB-X4D">
+                                        <rect key="frame" x="0.0" y="249.5" width="374" height="230"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                        <state key="normal" backgroundImage="arrow.down" catalog="system"/>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6g3-1I-i9Y">
+                                        <rect key="frame" x="0.0" y="496.5" width="374" height="232.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pLc-kr-ImV" firstAttribute="trailing" secondItem="fJI-SG-Of1" secondAttribute="trailing" constant="20" id="BOJ-SB-cAL"/>
+                            <constraint firstItem="pLc-kr-ImV" firstAttribute="bottom" secondItem="fJI-SG-Of1" secondAttribute="bottom" constant="20" id="UaS-Qu-M27"/>
+                            <constraint firstItem="fJI-SG-Of1" firstAttribute="leading" secondItem="pLc-kr-ImV" secondAttribute="leading" constant="20" id="YUz-cg-hOe"/>
+                            <constraint firstItem="fJI-SG-Of1" firstAttribute="top" secondItem="pLc-kr-ImV" secondAttribute="top" constant="20" id="ews-p8-6Hq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pLc-kr-ImV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Traduction" image="repeat" catalog="system" id="f7u-MX-QTv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfF-qL-cwf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="-72"/>
+            <point key="canvasLocation" x="85.507246376811594" y="-72.321428571428569"/>
         </scene>
         <!--Weather-->
         <scene sceneID="zgZ-pV-Vk0">
             <objects>
-                <viewController id="Ozt-Dh-hqU" userLabel="Weather" sceneMemberID="viewController">
+                <viewController id="Ozt-Dh-hqU" userLabel="Weather" customClass="WheatherViewController" customModule="Le_Baluchon" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nCd-B7-9jI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +70,7 @@
         <!--ExchangeRate-->
         <scene sceneID="GpX-9w-zLv">
             <objects>
-                <viewController id="Hv1-54-Are" userLabel="ExchangeRate" sceneMemberID="viewController">
+                <viewController id="Hv1-54-Are" userLabel="ExchangeRate" customClass="ExchangeViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RyN-Xc-jZQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="85.507246376811594" y="-785.49107142857144"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="nud-Hw-aLX">
             <objects>
-                <tabBarController id="29Y-vb-AV7" sceneMemberID="viewController">
+                <tabBarController id="29Y-vb-AV7" customClass="MainTabBarController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WAr-mW-Idh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -136,7 +164,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKw-HL-pFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-833" y="-440"/>
+            <point key="canvasLocation" x="-825" y="-441"/>
         </scene>
     </scenes>
     <resources>

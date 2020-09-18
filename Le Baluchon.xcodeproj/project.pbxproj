@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		8FA393EE25139537000D0AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA393ED25139537000D0AF4 /* AppDelegate.swift */; };
 		8FA393F025139537000D0AF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA393EF25139537000D0AF4 /* SceneDelegate.swift */; };
-		8FA393F225139537000D0AF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA393F125139537000D0AF4 /* ViewController.swift */; };
+		8FA393F225139537000D0AF4 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA393F125139537000D0AF4 /* ExchangeViewController.swift */; };
 		8FA393F525139537000D0AF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA393F325139537000D0AF4 /* Main.storyboard */; };
 		8FA393F825139537000D0AF4 /* Le_Baluchon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FA393F625139537000D0AF4 /* Le_Baluchon.xcdatamodeld */; };
 		8FA393FA2513953C000D0AF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FA393F92513953C000D0AF4 /* Assets.xcassets */; };
 		8FA393FD2513953C000D0AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA393FB2513953C000D0AF4 /* LaunchScreen.storyboard */; };
 		8FA394082513953D000D0AF4 /* Le_BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA394072513953D000D0AF4 /* Le_BaluchonTests.swift */; };
+		8FA394272514C875000D0AF4 /* TraductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA394262514C875000D0AF4 /* TraductionViewController.swift */; };
+		8FA394292514C895000D0AF4 /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA394282514C895000D0AF4 /* WheatherViewController.swift */; };
+		8FA3942B2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,7 @@
 		8FA393EA25139536000D0AF4 /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA393ED25139537000D0AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FA393EF25139537000D0AF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8FA393F125139537000D0AF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8FA393F125139537000D0AF4 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		8FA393F425139537000D0AF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FA393F725139537000D0AF4 /* Le_Baluchon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Le_Baluchon.xcdatamodel; sourceTree = "<group>"; };
 		8FA393F92513953C000D0AF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		8FA394072513953D000D0AF4 /* Le_BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonTests.swift; sourceTree = "<group>"; };
 		8FA394092513953D000D0AF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FA3940E2513953D000D0AF4 /* Le BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FA394262514C875000D0AF4 /* TraductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraductionViewController.swift; sourceTree = "<group>"; };
+		8FA394282514C895000D0AF4 /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
+		8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +144,10 @@
 		8FA3942225139A27000D0AF4 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				8FA393F125139537000D0AF4 /* ViewController.swift */,
+				8FA393F125139537000D0AF4 /* ExchangeViewController.swift */,
+				8FA394262514C875000D0AF4 /* TraductionViewController.swift */,
+				8FA394282514C895000D0AF4 /* WheatherViewController.swift */,
+				8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -281,8 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FA3942B2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift in Sources */,
 				8FA393F825139537000D0AF4 /* Le_Baluchon.xcdatamodeld in Sources */,
-				8FA393F225139537000D0AF4 /* ViewController.swift in Sources */,
+				8FA393F225139537000D0AF4 /* ExchangeViewController.swift in Sources */,
+				8FA394292514C895000D0AF4 /* WheatherViewController.swift in Sources */,
+				8FA394272514C875000D0AF4 /* TraductionViewController.swift in Sources */,
 				8FA393EE25139537000D0AF4 /* AppDelegate.swift in Sources */,
 				8FA393F025139537000D0AF4 /* SceneDelegate.swift in Sources */,
 			);
