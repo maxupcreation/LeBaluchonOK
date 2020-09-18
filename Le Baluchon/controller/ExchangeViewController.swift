@@ -8,10 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExchangeViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var euroTxtField: UITextField!
 
-
+    @IBOutlet weak var DollarResultLabel: UILabel!
+    
+    @IBAction func TappedArrowConversionButton(_ sender: Any) {
+        
+        
+    }
+    
+    
+    
 
 }
 

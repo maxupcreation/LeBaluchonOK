@@ -78,10 +78,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="jMD-cl-e7b">
                                 <rect key="frame" x="20" y="64" width="374" height="729"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ISZ-bh-6DA">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ISZ-bh-6DA" userLabel="EuroStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="173"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q73-ee-keM">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q73-ee-keM" userLabel="euroTxtField">
                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="173"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -102,8 +102,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="49"/>
                                         <state key="normal" backgroundImage="arrow.down" catalog="system"/>
+                                        <connections>
+                                            <action selector="TappedArrowConversionButton:" destination="Hv1-54-Are" eventType="touchUpInside" id="k0x-gP-fO9"/>
+                                        </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8GE-Gs-8Uf">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8GE-Gs-8Uf" userLabel="DollarStackView">
                                         <rect key="frame" x="0.0" y="495" width="374" height="234"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8y-ki-812">
@@ -142,6 +145,10 @@
                         <viewLayoutGuide key="safeArea" id="Shk-Tz-D5N"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Exchange Rate" image="eurosign.circle.fill" catalog="system" id="WCl-QH-bcN"/>
+                    <connections>
+                        <outlet property="DollarResultLabel" destination="P8y-ki-812" id="9Lo-0u-zUn"/>
+                        <outlet property="euroTxtField" destination="q73-ee-keM" id="yX6-9D-FKN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2d-vC-a4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
