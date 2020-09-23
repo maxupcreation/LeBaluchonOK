@@ -10,19 +10,24 @@ import UIKit
 
 class ExchangeViewController: UIViewController {
 
-    
+    let exchangeService = ExchangeServiceModel()
     
     @IBOutlet weak var euroTxtField: UITextField!
 
-    @IBOutlet weak var DollarResultLabel: UILabel!
+    @IBOutlet weak var dollarResultLabel: UILabel!
     
-    @IBAction func TappedArrowConversionButton(_ sender: Any) {
-        
-        
+    @IBAction func tappedArrowConversionButton(_ sender: Any) {
+       
     }
-    
-    
-    
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        exchangeService.createConversionRequestTask { result in
+            switch result {
+            case .success(let exchangeData) :
+                print(exchangeData.rates["USD"])
+            case .failure(let error) :
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
-

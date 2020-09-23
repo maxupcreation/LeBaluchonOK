@@ -7,8 +7,10 @@
 //
 
 import Foundation
-struct ExchangeData {
-    var euroValue : String?
-    var dollarValue : String?
-    var rates : Dictionary <String, Float>
+
+// MARK: - ExchangeData
+
+struct ExchangeData: Decodable {
+    let rates: [String : Double]
 }
+

@@ -103,7 +103,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="49"/>
                                         <state key="normal" backgroundImage="arrow.down" catalog="system"/>
                                         <connections>
-                                            <action selector="TappedArrowConversionButton:" destination="Hv1-54-Are" eventType="touchUpInside" id="k0x-gP-fO9"/>
+                                            <action selector="tappedArrowConversionButton:" destination="Hv1-54-Are" eventType="touchUpInside" id="k0x-gP-fO9"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8GE-Gs-8Uf" userLabel="DollarStackView">
@@ -146,7 +146,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Exchange Rate" image="eurosign.circle.fill" catalog="system" id="WCl-QH-bcN"/>
                     <connections>
-                        <outlet property="DollarResultLabel" destination="P8y-ki-812" id="9Lo-0u-zUn"/>
+                        <outlet property="dollarResultLabel" destination="P8y-ki-812" id="9Lo-0u-zUn"/>
                         <outlet property="euroTxtField" destination="q73-ee-keM" id="yX6-9D-FKN"/>
                     </connections>
                 </viewController>
