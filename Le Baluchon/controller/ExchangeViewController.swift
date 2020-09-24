@@ -9,25 +9,35 @@
 import UIKit
 
 class ExchangeViewController: UIViewController {
-
-    let exchangeService = ExchangeServiceModel()
+    
+    var exchangeService = ExchangeServiceModel()
     
     @IBOutlet weak var euroTxtField: UITextField!
-
+    
     @IBOutlet weak var dollarResultLabel: UILabel!
     
-    @IBAction func tappedArrowConversionButton(_ sender: Any) {
-       
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        exchangeService.createConversionRequestTask { result in
-            switch result {
-            case .success(let exchangeData) :
-                print(exchangeData.rates["USD"])
-            case .failure(let error) :
-                print(error.localizedDescription)
+    @IBAction func tappedArrowConversionButton() {
+        exchangeService.createConversionRequestTask { (success,data) in
+            DispatchQueue.main.async {
+                if success, let exchangeData = exchangeData {
+                    self.update(exchangeData: exchangeData)
+                } else {
+                    self.presentAlert()
+                }
             }
         }
+    }
+    
+    
+
+    func presentAlert(message : String) {
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
 }

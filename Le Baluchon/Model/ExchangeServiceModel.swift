@@ -44,20 +44,6 @@ class  ExchangeServiceModel {
             }
             callback(.success(responseJSON))
             
-            //décodage des données de l'API
-           // guard (try? JSONDecoder().decode(ExchangeData.self, from: data)) != nil else {
-             //   return callback(.failure(.undecodable)) }
-            
-            
-            /* guard let responseJSON = try? JSONDecoder().decode([String: String].self, from: data!),
-             let timeStamp = responseJSON["timestamp"],
-             let base = responseJSON["EUR"],
-             let date = responseJSON["date"],
-             let rates = responseJSON["rates"]
-             else {
-             callback(.failure(.noResponse))
-             
-             } */
         }
         task?.resume()
     }
