@@ -20,7 +20,7 @@
 		8FA3942B2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */; };
 		8FA3942D25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */; };
 		8FA3942E25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */; };
-		9C47993D251CEFAA001C6417 /* ConvertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47993C251CEFA9001C6417 /* ConvertModel.swift */; };
+		9C47993F251E0278001C6417 /* ConvertExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47993E251E0278001C6417 /* ConvertExchangeModel.swift */; };
 		9CB558642518EFC100881F9A /* ExchangeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB558632518EFC000881F9A /* ExchangeData.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 		8FA394282514C895000D0AF4 /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
 		8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerTableViewController.swift; sourceTree = "<group>"; };
 		8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeServiceModel.swift; sourceTree = "<group>"; };
-		9C47993C251CEFA9001C6417 /* ConvertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertModel.swift; sourceTree = "<group>"; };
+		9C47993E251E0278001C6417 /* ConvertExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertExchangeModel.swift; sourceTree = "<group>"; };
 		9CB558632518EFC000881F9A /* ExchangeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,9 +146,9 @@
 		8FA3942325139A3E000D0AF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */,
 				9CB558632518EFC000881F9A /* ExchangeData.swift */,
-				9C47993C251CEFA9001C6417 /* ConvertModel.swift */,
+				9C47993E251E0278001C6417 /* ConvertExchangeModel.swift */,
+				8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,12 +258,12 @@
 				8FA393F825139537000D0AF4 /* Le_Baluchon.xcdatamodeld in Sources */,
 				8FA393F225139537000D0AF4 /* ExchangeViewController.swift in Sources */,
 				8FA394292514C895000D0AF4 /* WheatherViewController.swift in Sources */,
+				9C47993F251E0278001C6417 /* ConvertExchangeModel.swift in Sources */,
 				8FA394272514C875000D0AF4 /* TraductionViewController.swift in Sources */,
 				8FA3942D25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */,
 				8FA393EE25139537000D0AF4 /* AppDelegate.swift in Sources */,
 				9CB558642518EFC100881F9A /* ExchangeData.swift in Sources */,
 				8FA393F025139537000D0AF4 /* SceneDelegate.swift in Sources */,
-				9C47993D251CEFAA001C6417 /* ConvertModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

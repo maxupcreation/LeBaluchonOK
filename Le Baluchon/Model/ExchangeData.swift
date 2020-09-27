@@ -6,11 +6,10 @@
 //  Copyright © 2020 Maxime. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - ExchangeData
 
 struct ExchangeData: Decodable {
-    let rates: [String : Double]
-}
-
+     var rates: [String : Double]
+    }

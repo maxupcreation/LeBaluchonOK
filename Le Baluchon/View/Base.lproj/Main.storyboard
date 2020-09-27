@@ -105,7 +105,6 @@
                                         <state key="normal" backgroundImage="arrow.down" catalog="system"/>
                                         <connections>
                                             <action selector="tappedArrowConversionButton" destination="Hv1-54-Are" eventType="touchUpInside" id="koQ-2M-kCK"/>
-                                            <action selector="tappedArrowConversionButton:" destination="Hv1-54-Are" eventType="touchUpInside" id="k0x-gP-fO9"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8GE-Gs-8Uf" userLabel="DollarStackView">

@@ -6,9 +6,9 @@
 //  Copyright © 2020 Maxime. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class  ExchangeServiceModel {
-    
+     public static let shared = ExchangeServiceModel()
     
     private var task : URLSessionTask?
     let session = URLSession(configuration: .default)
@@ -49,8 +49,6 @@ class  ExchangeServiceModel {
     }
     
 }
-
-
 
 
 
