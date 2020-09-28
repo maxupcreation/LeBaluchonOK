@@ -11,22 +11,19 @@ import UIKit
 class ConvertExchangeModel {
     var euroTxtField = ""
     lazy var convertTxtFieldInt = Double(euroTxtField)
-    var instanceOfExchangeData = ExchangeData.init(rates: ["USD":0])
-  
+    var rates : Double?
+    
     
     
     
     func convert() -> String  {
-    let rates = instanceOfExchangeData.rates["USD"]
-        if rates != nil {
+       
             func convertToEuro(value: Double, rate: Double) -> Double {
                 return value / rate
             }
-            
-            // ajouter à condition d'être différent de nil
             let result = String(convertToEuro(value: convertTxtFieldInt!, rate: rates!))
-            return result
-        }
-      return "error"
+            
+        return result
+        
     }
 }

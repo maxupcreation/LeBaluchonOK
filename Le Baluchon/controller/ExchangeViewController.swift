@@ -23,23 +23,25 @@ class ExchangeViewController: UIViewController {
     @IBOutlet weak var dollarResultLabel: UILabel!
     
     @IBAction func tappedArrowConversionButton() {
-       
-            ExchangeServiceModel.shared.createConversionRequestTask { Result in
-                switch Result {
-                case .success : self.update()
-                case .failure : self.presentAlert(message:"error")
-                }
+        
+        ExchangeServiceModel.shared.createConversionRequestTask() { Result in
+            switch Result {
+                
+            case .success(let data) :
+                self.update(data: data)
+                
+            case .failure : self.presentAlert(message:"error")
+                
             }
-        }
-    
-    func update() {
-        let result = convertExchangeModel.convert()
-        DispatchQueue.main.sync {
-            convertExchangeModel.euroTxtField = euroTxtField.text!
-            dollarResultLabel.text = result
         }
     }
     
+    func update(data : ExchangeData) {
+        DispatchQueue.main.sync {
+            let result = convert(value: euroTxtField.text!, rates: data)
+            dollarResultLabel.text = result
+        }
+    }
     
     
     func presentAlert(message : String) {
@@ -48,17 +50,11 @@ class ExchangeViewController: UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
+    func convert(value: String, rates: ExchangeData) -> String  {
+        let rate : Double = rates.rates["USD"]!
+        return String(Double(value)!/rate)
+    }
+    
     
 }
-
-
-/* ExchangeServiceModel.shared.createConversionRequestTask { (success) in
- DispatchQueue.main.async {
- if success, let exchangeData = exchangeData {
- self.update(exchangeData: exchangeData)
- } else {
- self.presentAlert()
- }
- }
- } */
 
