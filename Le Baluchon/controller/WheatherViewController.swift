@@ -40,6 +40,7 @@ class WheatherViewController: UIViewController {
         let temperature = "\(dataWeatherInstance.main.temp)"
         temperatureLabel.text = temperature
         print(temperature)
+        
     }
     
   

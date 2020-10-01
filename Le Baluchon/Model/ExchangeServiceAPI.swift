@@ -24,7 +24,9 @@ class  ExchangeServiceAPI {
     
     func createConversionRequestTask(callback : @escaping (Result<ExchangeData,NetworkError>)->Void) {
         
-        guard let url = URL(string:"http://data.fixer.io/api/latest?access_key=79d9d449523d341c9a5dd2d8b3328419&symbols=USD" ) else {return}
+        guard let url = URL(string:"api.openweathermap.org%2Fdata%2F2.5%2Fweather%3Fq%3DChambery%26appid%3D106f0db32999088d061a4e175f721a8e" ) else {return}
+        
+        
         task?.cancel()
         task = session.dataTask(with: url ) {
             (data, response, error) in

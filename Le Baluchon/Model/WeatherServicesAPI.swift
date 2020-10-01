@@ -21,7 +21,7 @@ class WeatherServicesAPI {
     
     func CreationWeatherTaskRequest(callback : @escaping (Result<WeatherDataStruct,NetWorkError>)->Void) {
         
-        guard let url = URL(string:"api.openweathermap.org/data/2.5/weather?q=Chambéry&appid=106f0db32999088d061a4e175f721a8e" ) else {return}
+        guard let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?id=3027421&appid=106f0db32999088d061a4e175f721a8e" ) else {return}
         
         task?.cancel()
         task = session.dataTask(with: url ) {
