@@ -59,14 +59,29 @@
                     <view key="view" contentMode="scaleToFill" id="nCd-B7-9jI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPU-u8-e2a">
+                                <rect key="frame" x="145.5" y="416.5" width="123.5" height="63.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JPU-u8-e2a" firstAttribute="centerX" secondItem="nCd-B7-9jI" secondAttribute="centerX" id="Lix-lz-q2z"/>
+                            <constraint firstItem="JPU-u8-e2a" firstAttribute="centerY" secondItem="nCd-B7-9jI" secondAttribute="centerY" id="qkh-Pi-xGU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bfn-xy-Bkt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="cloud.drizzle.fill" catalog="system" id="DNr-5E-yAW"/>
+                    <connections>
+                        <outlet property="temperatureLabel" destination="JPU-u8-e2a" id="kpS-jF-hgA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thp-LP-8f1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="-441"/>
+            <point key="canvasLocation" x="924.63768115942037" y="-441.29464285714283"/>
         </scene>
         <!--ExchangeRate-->
         <scene sceneID="GpX-9w-zLv">

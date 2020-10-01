@@ -18,10 +18,12 @@
 		8FA394272514C875000D0AF4 /* TraductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA394262514C875000D0AF4 /* TraductionViewController.swift */; };
 		8FA394292514C895000D0AF4 /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA394282514C895000D0AF4 /* WheatherViewController.swift */; };
 		8FA3942B2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */; };
-		8FA3942D25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */; };
-		8FA3942E25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */; };
-		9C47993F251E0278001C6417 /* ConvertExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47993E251E0278001C6417 /* ConvertExchangeModel.swift */; };
+		8FA3942D25150C9A000D0AF4 /* ExchangeServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceAPI.swift */; };
+		8FA3942E25150C9A000D0AF4 /* ExchangeServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA3942C25150C9A000D0AF4 /* ExchangeServiceAPI.swift */; };
 		9CB558642518EFC100881F9A /* ExchangeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB558632518EFC000881F9A /* ExchangeData.swift */; };
+		9CB80C05252345D300501D8E /* WeatherDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB80C04252345D200501D8E /* WeatherDataStruct.swift */; };
+		9CE26BEF2524E6D700114E3A /* WeatherServicesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE26BEE2524E6D700114E3A /* WeatherServicesAPI.swift */; };
+		9CE26BF02524E6D700114E3A /* WeatherServicesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE26BEE2524E6D700114E3A /* WeatherServicesAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +52,10 @@
 		8FA394262514C875000D0AF4 /* TraductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraductionViewController.swift; sourceTree = "<group>"; };
 		8FA394282514C895000D0AF4 /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
 		8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerTableViewController.swift; sourceTree = "<group>"; };
-		8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeServiceModel.swift; sourceTree = "<group>"; };
-		9C47993E251E0278001C6417 /* ConvertExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertExchangeModel.swift; sourceTree = "<group>"; };
+		8FA3942C25150C9A000D0AF4 /* ExchangeServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeServiceAPI.swift; sourceTree = "<group>"; };
 		9CB558632518EFC000881F9A /* ExchangeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeData.swift; sourceTree = "<group>"; };
+		9CB80C04252345D200501D8E /* WeatherDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataStruct.swift; sourceTree = "<group>"; };
+		9CE26BEE2524E6D700114E3A /* WeatherServicesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServicesAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				8FA393F125139537000D0AF4 /* ExchangeViewController.swift */,
-				8FA394262514C875000D0AF4 /* TraductionViewController.swift */,
 				8FA394282514C895000D0AF4 /* WheatherViewController.swift */,
+				8FA394262514C875000D0AF4 /* TraductionViewController.swift */,
 				8FA3942A2514CA6C000D0AF4 /* MainTabBarControllerTableViewController.swift */,
 			);
 			path = controller;
@@ -147,8 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				9CB558632518EFC000881F9A /* ExchangeData.swift */,
-				9C47993E251E0278001C6417 /* ConvertExchangeModel.swift */,
-				8FA3942C25150C9A000D0AF4 /* ExchangeServiceModel.swift */,
+				8FA3942C25150C9A000D0AF4 /* ExchangeServiceAPI.swift */,
+				9CE26BEE2524E6D700114E3A /* WeatherServicesAPI.swift */,
+				9CB80C04252345D200501D8E /* WeatherDataStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,10 +262,11 @@
 				8FA393F825139537000D0AF4 /* Le_Baluchon.xcdatamodeld in Sources */,
 				8FA393F225139537000D0AF4 /* ExchangeViewController.swift in Sources */,
 				8FA394292514C895000D0AF4 /* WheatherViewController.swift in Sources */,
-				9C47993F251E0278001C6417 /* ConvertExchangeModel.swift in Sources */,
+				9CB80C05252345D300501D8E /* WeatherDataStruct.swift in Sources */,
 				8FA394272514C875000D0AF4 /* TraductionViewController.swift in Sources */,
-				8FA3942D25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */,
+				8FA3942D25150C9A000D0AF4 /* ExchangeServiceAPI.swift in Sources */,
 				8FA393EE25139537000D0AF4 /* AppDelegate.swift in Sources */,
+				9CE26BEF2524E6D700114E3A /* WeatherServicesAPI.swift in Sources */,
 				9CB558642518EFC100881F9A /* ExchangeData.swift in Sources */,
 				8FA393F025139537000D0AF4 /* SceneDelegate.swift in Sources */,
 			);
@@ -271,8 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CE26BF02524E6D700114E3A /* WeatherServicesAPI.swift in Sources */,
 				8FA394082513953D000D0AF4 /* Le_BaluchonTests.swift in Sources */,
-				8FA3942E25150C9A000D0AF4 /* ExchangeServiceModel.swift in Sources */,
+				8FA3942E25150C9A000D0AF4 /* ExchangeServiceAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

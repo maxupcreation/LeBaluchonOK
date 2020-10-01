@@ -15,7 +15,7 @@ class ExchangeViewController: UIViewController {
         
     }
     
-    var convertExchangeModel = ConvertExchangeModel()
+    var exchangesServiceModel = ExchangeServiceAPI()
     
     
     @IBOutlet weak var euroTxtField: UITextField!
@@ -24,8 +24,8 @@ class ExchangeViewController: UIViewController {
     
     @IBAction func tappedArrowConversionButton() {
         
-        ExchangeServiceModel.shared.createConversionRequestTask() { Result in
-            switch Result {
+        exchangesServiceModel.createConversionRequestTask() { result in
+            switch result {
                 
             case .success(let data) :
                 self.update(data: data)
@@ -38,7 +38,7 @@ class ExchangeViewController: UIViewController {
     
     func update(data : ExchangeData) {
         DispatchQueue.main.sync {
-            let result = convert(value: euroTxtField.text!, rates: data)
+            let result = convert(value: euroTxtField.text ?? "", rates: data)
             dollarResultLabel.text = result
         }
     }
@@ -51,8 +51,9 @@ class ExchangeViewController: UIViewController {
     }
     
     func convert(value: String, rates: ExchangeData) -> String  {
-        let rate : Double = rates.rates["USD"]!
-        return String(Double(value)!/rate)
+        guard let rate = rates.rates["USD"] else { return "NA" }
+        guard let valueDoubled = Double(value) else {return "NA"}
+        return String(valueDoubled / rate)
     }
     
     
