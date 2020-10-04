@@ -5,16 +5,37 @@
 
 import Foundation
 
-// MARK: - WeatherDataStruct
-struct WeatherDataStruct: Decodable {
+// MARK: - Welcome
+struct WeatherDataStruct: Codable {
+    let cnt: Int
+    let list: [List]
+}
+
+// MARK: - List
+struct List: Codable {
+    let coord: Coord
+    let sys: Sys
     let weather: [Weather]
-    let base: String
     let main: Main
+    let visibility: Int
+    let wind: Wind
+    let clouds: Clouds
+    let dt, id: Int
     let name: String
 }
 
+// MARK: - Clouds
+struct Clouds: Codable {
+    let all: Int
+}
+
+// MARK: - Coord
+struct Coord: Codable {
+    let lon, lat: Double
+}
+
 // MARK: - Main
-struct Main: Decodable {
+struct Main: Codable {
     let temp, feelsLike, tempMin, tempMax: Double
     let pressure, humidity: Int
 
@@ -27,8 +48,14 @@ struct Main: Decodable {
     }
 }
 
+// MARK: - Sys
+struct Sys: Codable {
+    let country: String
+    let timezone, sunrise, sunset: Int
+}
+
 // MARK: - Weather
-struct Weather: Decodable {
+struct Weather: Codable {
     let id: Int
     let main, weatherDescription, icon: String
 
@@ -37,4 +64,10 @@ struct Weather: Decodable {
         case weatherDescription = "description"
         case icon
     }
+}
+
+// MARK: - Wind
+struct Wind: Codable {
+    let speed: Double
+    let deg: Int
 }

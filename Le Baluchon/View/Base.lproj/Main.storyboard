@@ -60,35 +60,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPU-u8-e2a">
-                                <rect key="frame" x="145.5" y="416.5" width="123.5" height="63.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-Dd-0it">
-                                <rect key="frame" x="20" y="500" width="374" height="293"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-35" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UH8-zh-X2V">
+                                <rect key="frame" x="20" y="64" width="374" height="729"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-b9-DEC">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="227.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1l3-N5-HbX">
+                                        <rect key="frame" x="0.0" y="179.5" width="374" height="228"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPU-u8-e2a">
+                                        <rect key="frame" x="0.0" y="322" width="374" height="227.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-Dd-0it">
+                                        <rect key="frame" x="0.0" y="501.5" width="374" height="227.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="bKi-Dd-0it" firstAttribute="top" secondItem="JPU-u8-e2a" secondAttribute="bottom" constant="20" id="1b6-Bh-zHW"/>
-                            <constraint firstItem="Bfn-xy-Bkt" firstAttribute="trailing" secondItem="bKi-Dd-0it" secondAttribute="trailing" constant="20" id="4Pm-VJ-kof"/>
-                            <constraint firstItem="bKi-Dd-0it" firstAttribute="leading" secondItem="Bfn-xy-Bkt" secondAttribute="leading" constant="20" id="B6v-ID-B72"/>
-                            <constraint firstItem="JPU-u8-e2a" firstAttribute="centerX" secondItem="nCd-B7-9jI" secondAttribute="centerX" id="Lix-lz-q2z"/>
-                            <constraint firstItem="Bfn-xy-Bkt" firstAttribute="bottom" secondItem="bKi-Dd-0it" secondAttribute="bottom" constant="20" id="jDC-ij-8PN"/>
-                            <constraint firstItem="JPU-u8-e2a" firstAttribute="centerY" secondItem="nCd-B7-9jI" secondAttribute="centerY" id="qkh-Pi-xGU"/>
+                            <constraint firstItem="Bfn-xy-Bkt" firstAttribute="trailing" secondItem="UH8-zh-X2V" secondAttribute="trailing" constant="20" id="77F-VL-Ezo"/>
+                            <constraint firstItem="UH8-zh-X2V" firstAttribute="leading" secondItem="Bfn-xy-Bkt" secondAttribute="leading" constant="20" id="AFu-Op-9FW"/>
+                            <constraint firstItem="Bfn-xy-Bkt" firstAttribute="bottom" secondItem="UH8-zh-X2V" secondAttribute="bottom" constant="20" id="FjM-vE-O4c"/>
+                            <constraint firstItem="UH8-zh-X2V" firstAttribute="top" secondItem="Bfn-xy-Bkt" secondAttribute="top" constant="20" id="v1c-n7-ECp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bfn-xy-Bkt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="cloud.drizzle.fill" catalog="system" id="DNr-5E-yAW"/>
                     <connections>
+                        <outlet property="descriptionTxtView" destination="bKi-Dd-0it" id="lQl-Dk-TFQ"/>
+                        <outlet property="descriptiontextviewNewYork" destination="1l3-N5-HbX" id="aub-wu-18n"/>
                         <outlet property="temperatureLabel" destination="JPU-u8-e2a" id="kpS-jF-hgA"/>
+                        <outlet property="temperatureLabelNewYork" destination="5Q3-b9-DEC" id="Gss-dM-ti1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thp-LP-8f1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

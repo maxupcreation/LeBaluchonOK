@@ -25,22 +25,23 @@ class ExchangeViewController: UIViewController {
     @IBAction func tappedArrowConversionButton() {
         
         exchangesServiceModel.createConversionRequestTask() { result in
-            switch result {
-                
-            case .success(let data) :
-                self.update(data: data)
-                
-            case .failure : self.presentAlert(message:"error")
-                
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data) :
+                    self.update(data: data)
+                    
+                case .failure : self.presentAlert(message:"error")
+                    
+                }
             }
         }
     }
     
     func update(data : ExchangeData) {
-        DispatchQueue.main.sync {
-            let result = convert(value: euroTxtField.text ?? "", rates: data)
-            dollarResultLabel.text = result
-        }
+        
+        let result = self.convert(value: self.euroTxtField.text ?? "", rates: data)
+        self.dollarResultLabel.text = result
+        
     }
     
     
@@ -53,7 +54,7 @@ class ExchangeViewController: UIViewController {
     func convert(value: String, rates: ExchangeData) -> String  {
         guard let rate = rates.rates["USD"] else { return "NA" }
         guard let valueDoubled = Double(value) else {return "NA"}
-        return String(valueDoubled / rate)
+        return String(format:"%.2f",valueDoubled / rate)
     }
     
     

@@ -10,6 +10,7 @@ import UIKit
 class WeatherServicesAPI {
     
     private var task : URLSessionTask?
+    // faire l'init
     
     let session = URLSession(configuration: .default)
     
@@ -19,12 +20,18 @@ class WeatherServicesAPI {
         case undecodable
     }
     
-    func CreationWeatherTaskRequest(callback : @escaping (Result<WeatherDataStruct,NetWorkError>)->Void) {
+    
+    func creationWeatherTaskRequest(for cityCode : String?, callback : @escaping (Result<WeatherDataStruct,NetWorkError>)->Void) {
         
-        guard let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?id=3027421&appid=106f0db32999088d061a4e175f721a8e" ) else {return}
+        let urlEnd = "&APPID=106f0db32999088d061a4e175f721a8e&units=metric"
+        
+        guard let url = URL(string:"http://api.openweathermap.org/data/2.5/group?" + cityCode! + urlEnd) else { return }
+        
+        // guard let url = URL(string:"https://api.openweathermap.org/data/2.5/group?id=5128638,2968815&APPID=106f0db32999088d061a4e175f721a8e&units=metric") else {return}
+        
         
         task?.cancel()
-        task = session.dataTask(with: url ) {
+        task = session.dataTask(with: url) {
             (data, response, error) in
             
             guard let data = data, error == nil else {
@@ -42,16 +49,8 @@ class WeatherServicesAPI {
                 callback(.failure(.undecodable))
                 return
             }
-            
             callback(.success(responseJSON))
         }
         task?.resume()
     }
 }
-
-
-
-
-
-
-
