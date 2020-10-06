@@ -25,7 +25,6 @@ class WheatherViewController: UIViewController {
         super.viewDidLoad()
         
         startAPIAndUpdateCHY()
-        startAPIAndUpdateNY()
     }
     // MARK: - START API
     
@@ -37,6 +36,7 @@ class WheatherViewController: UIViewController {
                 switch result {
                 case .success(let dataWeatherInstance):
                     self.updateChambery(dataWeatherInstance : dataWeatherInstance)
+                    self.startAPIAndUpdateNY()
                 case .failure : self.presentAlert(message:"error")
                     
                 }
