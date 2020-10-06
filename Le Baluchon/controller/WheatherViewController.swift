@@ -17,26 +17,40 @@ class WheatherViewController: UIViewController {
     @IBOutlet weak var temperatureLabelNewYork: UILabel!
     @IBOutlet weak var descriptiontextviewNewYork: UITextView!
     
-     var weatherServicesAPI_Instance = WeatherServicesAPI()
+    var weatherServicesAPI_Instance = WeatherServicesAPI()
     
-   // **************************************************************
+    //MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        startAPIAndUpdate()
+        startAPIAndUpdateCHY()
+        startAPIAndUpdateNY()
     }
-    
     // MARK: - START API
     
-    func startAPIAndUpdate() {
+    func startAPIAndUpdateCHY() {
         
-        weatherServicesAPI_Instance.creationWeatherTaskRequest(for: "id=5128638,3027421") { result in
+        weatherServicesAPI_Instance.creationWeatherTaskRequest(for: "id=3027421") { result in
             DispatchQueue.main.async {
                 
                 switch result {
                 case .success(let dataWeatherInstance):
                     self.updateChambery(dataWeatherInstance : dataWeatherInstance)
+                case .failure : self.presentAlert(message:"error")
+                    
+                }
+            }
+        }
+    }
+    
+    func startAPIAndUpdateNY() {
+        
+        weatherServicesAPI_Instance.creationWeatherTaskRequest(for: "id=5128638") { result in
+            DispatchQueue.main.async {
+                
+                switch result {
+                case .success(let dataWeatherInstance):
                     self.updateNewyork(dataWeatherInstance: dataWeatherInstance)
                 case .failure : self.presentAlert(message:"error")
                     
@@ -45,30 +59,29 @@ class WheatherViewController: UIViewController {
         }
     }
     
-//MARK: - UPDATE VIEW
+    //MARK: - UPDATE VIEW
     
     private func updateNewyork(dataWeatherInstance: WeatherDataStruct){
         
         // DESCRIPTION NY
-        descriptiontextviewNewYork.text = dataWeatherInstance.list[0].weather[0].weatherDescription
+        descriptiontextviewNewYork.text = dataWeatherInstance.weather.first?.weatherDescription
         
         //TEMPERATURE NY
-        let temperature = String(dataWeatherInstance.list[0].main.temp)
-        temperatureLabelNewYork.text = temperature
+        let temperature = String(dataWeatherInstance.main.temp)
+        temperatureLabelNewYork.text = temperature + " " + "C°"
     }
     
     private func updateChambery(dataWeatherInstance: WeatherDataStruct){
         
         // DESCRIPTION CHY
-        descriptionTxtView.text = dataWeatherInstance.list[0].weather[0].weatherDescription
+        descriptionTxtView.text = dataWeatherInstance.weather.first?.weatherDescription
         
         //TEMPERATURE CHY
-        let temperature = String(dataWeatherInstance.list[0].main.temp)
-        temperatureLabel.text = temperature + "" + "C°"
-        
+        let temperature =  String(dataWeatherInstance.main.temp)
+        temperatureLabel.text = temperature + " " + "C°"
     }
     
-    // MARK: - Alert
+    // MARK: - ALERT
     
     func presentAlert(message : String) {
         let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)

@@ -10,7 +10,7 @@ import UIKit
 class  ExchangeServiceAPI {
     
     private var task : URLSessionTask?
-    
+
     let session = URLSession(configuration: .default)
     
     
