@@ -3,14 +3,14 @@
 import Foundation
 
 // MARK: - WeatherDataStruct
-struct WeatherDataStruct: Codable {
+struct WeatherDataStruct: Decodable {
     let weather: [Weather]
     let main: Main
     let name: String
   
 }
 // MARK: - Main
-struct Main: Codable {
+struct Main: Decodable {
     let temp: Double
 
     enum CodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ struct Main: Codable {
 }
 
 // MARK: - Weather
-struct Weather: Codable {
+struct Weather: Decodable {
     let id: Int
     let main, weatherDescription, icon: String
 

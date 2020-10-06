@@ -60,47 +60,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="UH8-zh-X2V">
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UH8-zh-X2V">
                                 <rect key="frame" x="20" y="64" width="374" height="729"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVE-Jo-4Lb">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="115"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="121.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-b9-DEC">
-                                        <rect key="frame" x="0.0" y="116" width="374" height="85"/>
+                                        <rect key="frame" x="0.0" y="121.5" width="374" height="121.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="53"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1l3-N5-HbX">
-                                        <rect key="frame" x="0.0" y="202" width="374" height="161"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLN-Yj-9GU">
+                                        <rect key="frame" x="0.0" y="243" width="374" height="121.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chambéry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ox-6B-Hgp">
-                                        <rect key="frame" x="0.0" y="364" width="374" height="115"/>
+                                        <rect key="frame" x="0.0" y="364.5" width="374" height="121.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPU-u8-e2a">
-                                        <rect key="frame" x="0.0" y="480" width="374" height="85"/>
+                                        <rect key="frame" x="0.0" y="486" width="374" height="121.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="53"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-Dd-0it">
-                                        <rect key="frame" x="0.0" y="566" width="374" height="163"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B25-qT-shJ">
+                                        <rect key="frame" x="0.0" y="607.5" width="374" height="121.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -115,8 +113,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Weather" image="cloud.drizzle.fill" catalog="system" id="DNr-5E-yAW"/>
                     <connections>
-                        <outlet property="descriptionTxtView" destination="bKi-Dd-0it" id="lQl-Dk-TFQ"/>
-                        <outlet property="descriptiontextviewNewYork" destination="1l3-N5-HbX" id="aub-wu-18n"/>
+                        <outlet property="descriptionTxtView" destination="B25-qT-shJ" id="Fg3-XM-K5R"/>
+                        <outlet property="descriptiontextviewNewYork" destination="vLN-Yj-9GU" id="nW8-1Y-Z5Q"/>
                         <outlet property="temperatureLabel" destination="JPU-u8-e2a" id="kpS-jF-hgA"/>
                         <outlet property="temperatureLabelNewYork" destination="5Q3-b9-DEC" id="Gss-dM-ti1"/>
                     </connections>
@@ -145,12 +143,12 @@
                                                     <constraint firstAttribute="width" constant="200" id="T10-0g-Eh4"/>
                                                     <constraint firstAttribute="height" constant="100" id="xC9-W2-uYQ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="78"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuF-6I-hU9">
                                                 <rect key="frame" x="210" y="0.0" width="124" height="100"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="78"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -172,14 +170,14 @@
                                         <rect key="frame" x="20" y="422" width="334" height="307"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8y-ki-812">
-                                                <rect key="frame" x="0.0" y="0.0" width="253" height="307"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="78"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="247.5" height="307"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNx-UX-77K">
-                                                <rect key="frame" x="263" y="0.0" width="71" height="307"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="78"/>
+                                                <rect key="frame" x="257.5" y="0.0" width="76.5" height="307"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

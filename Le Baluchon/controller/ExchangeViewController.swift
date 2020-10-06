@@ -15,11 +15,11 @@ class ExchangeViewController: UIViewController {
     @IBOutlet weak var euroTxtField: UITextField!
     
     @IBOutlet weak var dollarResultLabel: UILabel!
-   
+    
     // Model instance
     var exchangesServiceModel = ExchangeServiceAPI()
     
-    //MARK: - BUTTON ACTION UPDATE
+    //MARK: - BUTTON ACTION & UPDATE
     
     @IBAction func tappedArrowConversionButton() {
         
@@ -30,6 +30,7 @@ class ExchangeViewController: UIViewController {
                     
                 case .success(let data) :
                     self.update(data: data)
+                    self.successChangeColorAnimate()
                     
                 case .failure : self.presentAlert(message:"error")
                     
@@ -57,4 +58,23 @@ class ExchangeViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
+    
+    //MARK: - COLOR & ANIMATE
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+    func successChangeColorAnimate(){
+        UIView.animate(withDuration: 0.4) {
+            self.view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        }
+        UIView.animate(withDuration: 5) {
+            self.view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+        
+    }
+    
 }

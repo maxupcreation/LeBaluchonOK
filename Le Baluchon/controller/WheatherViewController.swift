@@ -12,10 +12,10 @@ class WheatherViewController: UIViewController {
     
     //MARK: - VARIABLE
     @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var descriptionTxtView: UITextView!
+    @IBOutlet weak var descriptionTxtView: UILabel!
     
     @IBOutlet weak var temperatureLabelNewYork: UILabel!
-    @IBOutlet weak var descriptiontextviewNewYork: UITextView!
+    @IBOutlet weak var descriptiontextviewNewYork: UILabel!
     
     var weatherServicesAPI_Instance = WeatherServicesAPI()
     
@@ -23,7 +23,7 @@ class WheatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         startAPIAndUpdateCHY()
     }
     // MARK: - START API
@@ -68,7 +68,7 @@ class WheatherViewController: UIViewController {
         
         //TEMPERATURE NY
         let temperature = String(dataWeatherInstance.main.temp)
-        temperatureLabelNewYork.text = temperature + " " + "C°"
+        temperatureLabelNewYork.text = temperature + " " + "°C"
     }
     
     private func updateChambery(dataWeatherInstance: WeatherDataStruct){
@@ -78,7 +78,7 @@ class WheatherViewController: UIViewController {
         
         //TEMPERATURE CHY
         let temperature =  String(dataWeatherInstance.main.temp)
-        temperatureLabel.text = temperature + " " + "C°"
+        temperatureLabel.text = temperature + " " + "°C"
     }
     
     // MARK: - ALERT
