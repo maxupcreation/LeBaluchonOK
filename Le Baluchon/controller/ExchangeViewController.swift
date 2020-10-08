@@ -14,6 +14,7 @@ class ExchangeViewController: UIViewController {
     
     @IBOutlet weak var euroTxtField: UITextField!
     
+    @IBOutlet weak var ButtonOutLet: UIButton!
     @IBOutlet weak var dollarResultLabel: UILabel!
     
     // Model instance
@@ -22,6 +23,8 @@ class ExchangeViewController: UIViewController {
     //MARK: - BUTTON ACTION & UPDATE
     
     @IBAction func tappedArrowConversionButton() {
+        
+        animateTappedButton()
         
         // Start of request, if success udpate view, if not else failure alert
         exchangesServiceModel.createConversionRequestTask() { result in
@@ -63,18 +66,33 @@ class ExchangeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.ButtonOutLet.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
+        self.euroTxtField.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+        self.euroTxtField.layer.cornerRadius = 50
+        self.euroTxtField.layer.masksToBounds = true
+        
+        self.dollarResultLabel.backgroundColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
+        self.dollarResultLabel.layer.cornerRadius = 50
+        self.dollarResultLabel.layer.masksToBounds = true
     }
     
     
     func successChangeColorAnimate(){
-        UIView.animate(withDuration: 0.4) {
-            self.view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        UIView.animate(withDuration: 0.5) {
+            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
         }
-        UIView.animate(withDuration: 5) {
-            self.view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-            self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        UIView.animate(withDuration: 1) {
+            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4578476902, green: 0.6071662624, blue: 0.818062356, alpha: 1)
         }
-        
     }
-    
+    func animateTappedButton() {
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.ButtonOutLet.transform = CGAffineTransform(translationX: -0 , y:-50)
+        }) { _  in
+            self.ButtonOutLet.transform = .identity
+        }
+    }
 }

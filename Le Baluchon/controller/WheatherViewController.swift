@@ -23,35 +23,20 @@ class WheatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        startAPIAndUpdateCHY()
+        
+        startAPIAndUpdate()
     }
     // MARK: - START API
     
-    func startAPIAndUpdateCHY() {
+    func startAPIAndUpdate() {
         
-        weatherServicesAPI_Instance.creationWeatherTaskRequest(for: "id=3027421") { result in
-            DispatchQueue.main.async {
-                
-                switch result {
-                case .success(let dataWeatherInstance):
-                    self.updateChambery(dataWeatherInstance : dataWeatherInstance)
-                    self.startAPIAndUpdateNY()
-                case .failure : self.presentAlert(message:"error")
-                    
-                }
-            }
-        }
-    }
-    
-    func startAPIAndUpdateNY() {
-        
-        weatherServicesAPI_Instance.creationWeatherTaskRequest(for: "id=5128638") { result in
+        weatherServicesAPI_Instance.creationWeatherTaskRequest() { result in
             DispatchQueue.main.async {
                 
                 switch result {
                 case .success(let dataWeatherInstance):
                     self.updateNewyork(dataWeatherInstance: dataWeatherInstance)
+                    self.updateChambery(dataWeatherInstance: dataWeatherInstance)
                 case .failure : self.presentAlert(message:"error")
                     
                 }
@@ -64,21 +49,21 @@ class WheatherViewController: UIViewController {
     private func updateNewyork(dataWeatherInstance: WeatherDataStruct){
         
         // DESCRIPTION NY
-        descriptiontextviewNewYork.text = dataWeatherInstance.weather.first?.weatherDescription
+        descriptiontextviewNewYork.text = dataWeatherInstance.list[0].weather.first?.description
         
         //TEMPERATURE NY
-        let temperature = String(dataWeatherInstance.main.temp)
-        temperatureLabelNewYork.text = temperature + " " + "°C"
+        let temperature = String(dataWeatherInstance.list[0].main.temp)
+        temperatureLabelNewYork.text = temperature + " °C"
     }
     
     private func updateChambery(dataWeatherInstance: WeatherDataStruct){
         
         // DESCRIPTION CHY
-        descriptionTxtView.text = dataWeatherInstance.weather.first?.weatherDescription
+        descriptionTxtView.text = dataWeatherInstance.list[1].weather.first?.description
         
         //TEMPERATURE CHY
-        let temperature =  String(dataWeatherInstance.main.temp)
-        temperatureLabel.text = temperature + " " + "°C"
+        let temperature =  String(dataWeatherInstance.list[1].main.temp)
+        temperatureLabel.text = temperature + " °C"
     }
     
     // MARK: - ALERT
