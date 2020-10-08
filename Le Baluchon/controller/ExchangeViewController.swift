@@ -5,10 +5,10 @@
 //  Created by Maxime on 17/09/2020.
 //  Copyright © 2020 Maxime. All rights reserved.
 //
-
+import AudioToolbox
 import UIKit
 
-class ExchangeViewController: UIViewController {
+class ExchangeViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - VARIABLE
     
@@ -20,8 +20,29 @@ class ExchangeViewController: UIViewController {
     // Model instance
     var exchangesServiceModel = ExchangeServiceAPI()
     
+    
+    
+    
+    //MARK: - ViewDidLoad
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        color()
+    }
+    
     //MARK: - BUTTON ACTION & UPDATE
     
+    //GESTION DU CLAVER
+    @IBAction func dismissKeyboard(_ sender: Any) { euroTxtField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        euroTxtField.resignFirstResponder()
+        return true
+    }
+    
+    //BUTTON CONVERSION
     @IBAction func tappedArrowConversionButton() {
         
         animateTappedButton()
@@ -64,19 +85,6 @@ class ExchangeViewController: UIViewController {
     
     //MARK: - COLOR & ANIMATE
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.ButtonOutLet.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        
-        self.euroTxtField.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
-        self.euroTxtField.layer.cornerRadius = 50
-        self.euroTxtField.layer.masksToBounds = true
-        
-        self.dollarResultLabel.backgroundColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
-        self.dollarResultLabel.layer.cornerRadius = 50
-        self.dollarResultLabel.layer.masksToBounds = true
-    }
     
     
     func successChangeColorAnimate(){
@@ -88,11 +96,56 @@ class ExchangeViewController: UIViewController {
         }
     }
     func animateTappedButton() {
-
-        UIView.animate(withDuration: 0.5, animations: {
-            self.ButtonOutLet.transform = CGAffineTransform(translationX: -0 , y:-50)
+        
+        SystemSoundID.playFileNamed(fileName: "encaissement-dargent-bruitage", withExtenstion: ".mp3")
+        
+        //EURO TXT FIELD ANIMATION
+        UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: .autoreverse, animations: {
+            self.euroTxtField.transform = CGAffineTransform(translationX: -0 , y:10)
+            
+        }) { _  in
+            
+            
+            self.euroTxtField.transform = .identity
+        }
+        
+        //ARROW BUTTON ANIMATION WITH DELAY
+        UIView.animateKeyframes(withDuration: 0.2, delay: 0.2, options: .autoreverse, animations: {
+            self.ButtonOutLet.transform = CGAffineTransform(translationX: -0 , y:10)
+            
         }) { _  in
             self.ButtonOutLet.transform = .identity
+            
+        }
+        
+        //RESULT BUTTON ANIMATION WITH DELAY
+        UIView.animateKeyframes(withDuration: 0.2, delay: 0.3, options: .autoreverse, animations: {
+            self.dollarResultLabel.transform = CGAffineTransform(translationX: -0, y: -5)
+            
+        }) { _  in
+            self.dollarResultLabel.transform = .identity
+        }
+    }
+    
+    func color() {
+        self.ButtonOutLet.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
+        self.euroTxtField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.euroTxtField.textColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        self.euroTxtField.layer.cornerRadius = 20
+        
+        self.dollarResultLabel.backgroundColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
+        self.dollarResultLabel.layer.cornerRadius = 20
+        self.dollarResultLabel.layer.masksToBounds = true
+    }
+}
+
+extension SystemSoundID {
+    static func playFileNamed(fileName: String, withExtenstion fileExtension: String) {
+        var sound: SystemSoundID = 0
+        if let soundURL = Bundle.main.url(forResource: fileName, withExtension: fileExtension) {
+            AudioServicesCreateSystemSoundID(soundURL as CFURL, &sound)
+            AudioServicesPlaySystemSound(sound)
         }
     }
 }
