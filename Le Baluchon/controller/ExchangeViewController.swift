@@ -84,9 +84,6 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: - COLOR & ANIMATE
-    
-    
-    
     func successChangeColorAnimate(){
         UIView.animate(withDuration: 0.5) {
             self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)

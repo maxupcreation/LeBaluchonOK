@@ -1,15 +1,14 @@
 //
-//  WeatherServicesAPI.swift
+//  TranslateGoogleAPI.swift
 //  Le Baluchon
 //
-//  Created by Maxime on 30/09/2020.
+//  Created by Maxime on 13/10/2020.
 //  Copyright © 2020 Maxime. All rights reserved.
 //
 
-import UIKit
-class WeatherServicesAPI {
-    
-    //MARK: - VARIABLE
+import Foundation
+class TranslateGoogleAPI {
+
     
     //URL SESSION TASK INSTANCE
     private var task : URLSessionTask?
@@ -27,31 +26,42 @@ class WeatherServicesAPI {
         case undecodable
     }
     
+    
+    
     //MARK: - TASK REQUEST
     
-    // CREATE REQUEST
-    func creationWeatherTaskRequest(callback : @escaping (Result<WeatherDataStruct,NetWorkError>)->Void) {
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128638,3027421&APPID=106f0db32999088d061a4e175f721a8e&units=metric") else {return}
+    func createConversionRequestTask(txt : String?, callback : @escaping (Result<GoogleTranslate,NetWorkError>)->Void) {
+        let apikeysInstance = ApiKeys()
+    
+           guard let textEncoded = txt?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
+        
+        let urlString = "https://www.googleapis.com/language/translate/v2?key=" + apikeysInstance.apiKeys + textEncoded
+    
+        print(urlString)
+        guard let googleUrl = URL(string: urlString ) else {return}
         
         task?.cancel()
-        task = session.dataTask(with:url) {
+        task = session.dataTask(with:googleUrl) {
             (data, response, error) in
             
             // DATA CHEKING
             guard let data = data, error == nil else {
                 callback(.failure(.noData))
+                print(NetWorkError.noData)
                 return
             }
             
             // SUCCESS RESPONSE CHEKING
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 callback(.failure(.noResponse))
+                print(NetWorkError.noResponse)
                 return
             }
             
             //JSON DECODER AND COMPARISON MODEL WITH RESPONSE
-            guard let responseJSON = try? JSONDecoder().decode(WeatherDataStruct.self, from: data) else {
+            guard let responseJSON = try? JSONDecoder().decode(GoogleTranslate.self, from: data) else {
                 callback(.failure(.undecodable))
+                print(NetWorkError.undecodable)
                 return
             }
             // RETURN DATA WITH CALLBACK
