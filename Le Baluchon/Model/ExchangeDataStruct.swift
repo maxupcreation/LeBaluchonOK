@@ -10,6 +10,6 @@ import UIKit
 
 // MARK: - ExchangeData
 
-struct ExchangeData: Decodable {
+struct ExchangeDataStruct: Decodable {
      var rates: [String : Double]
     }

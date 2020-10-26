@@ -17,81 +17,11 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ButtonOutLet: UIButton!
     @IBOutlet weak var dollarResultLabel: UILabel!
     
-    // Model instance
-    var exchangesServiceModel = ExchangeServiceAPI()
+    // Model instance template
+    private let httpClient: HTTPClient = HTTPClient()
     
+    //MARK:- COLOR AND ANIMATE
     
-    
-    
-    //MARK: - ViewDidLoad
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        color()
-    }
-    
-    //MARK: - BUTTON ACTION & UPDATE
-    
-    //GESTION DU CLAVER
-    @IBAction func dismissKeyboard(_ sender: Any) { euroTxtField.resignFirstResponder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        euroTxtField.resignFirstResponder()
-        return true
-    }
-    
-    //BUTTON CONVERSION
-    @IBAction func tappedArrowConversionButton() {
-        
-        animateTappedButton()
-        
-        // Start of request, if success udpate view, if not else failure alert
-        exchangesServiceModel.createConversionRequestTask() { result in
-            DispatchQueue.main.async {
-                switch result {
-                    
-                case .success(let data) :
-                    self.update(data: data)
-                    self.successChangeColorAnimate()
-                    
-                case .failure : self.presentAlert(message:"error")
-                    
-                }
-            }
-        }
-    }
-    
-    func update(data : ExchangeData) {
-        
-        let result = self.convert(value: self.euroTxtField.text ?? "", rates: data)
-        self.dollarResultLabel.text = result
-    }
-    
-    func convert(value: String, rates: ExchangeData) -> String  {
-        guard let rate = rates.rates["USD"] else { return "NA" }
-        guard let valueDoubled = Double(value) else {return "NA"}
-        return String(format:"%.2f",valueDoubled / rate)
-    }
-    
-    //MARK: - ALERT
-    
-    func presentAlert(message : String) {
-        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alertVC, animated: true, completion: nil)
-    }
-    
-    //MARK: - COLOR & ANIMATE
-    func successChangeColorAnimate(){
-        UIView.animate(withDuration: 0.5) {
-            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
-        }
-        UIView.animate(withDuration: 1) {
-            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4578476902, green: 0.6071662624, blue: 0.818062356, alpha: 1)
-        }
-    }
     func animateTappedButton() {
         
         SystemSoundID.playFileNamed(fileName: "encaissement-dargent-bruitage", withExtenstion: ".mp3")
@@ -124,6 +54,7 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     func color() {
         self.ButtonOutLet.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
@@ -134,6 +65,78 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
         self.dollarResultLabel.backgroundColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
         self.dollarResultLabel.layer.cornerRadius = 20
         self.dollarResultLabel.layer.masksToBounds = true
+    }
+    
+    func successChangeColorAnimate(){
+        UIView.animate(withDuration: 0.5) {
+            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
+        }
+        UIView.animate(withDuration: 1) {
+            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4578476902, green: 0.6071662624, blue: 0.818062356, alpha: 1)
+        }
+    }
+    
+    //MARK: - ViewDidLoad
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        color()
+    }
+    
+    //MARK: - BUTTON ACTION & UPDATE
+    
+    //KEYBOARD GESTION
+    @IBAction func dismissKeyboard(_ sender: Any) { euroTxtField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        euroTxtField.resignFirstResponder()
+        return true
+    }
+    
+    //BUTTON CONVERSION
+    @IBAction func tappedArrowConversionButton() {
+        
+        animateTappedButton()
+    
+        
+        //CALL NETWORK
+         guard let urlExchange = URL(string: "http://data.fixer.io/api/latest?access_key=79d9d449523d341c9a5dd2d8b3328419&symbols=USD") else {return}
+        
+        
+        httpClient.request(baseUrl:urlExchange, parameters: nil) { (result :Result<ExchangeDataStruct, NetworkErrorEnum>) in
+            switch result {
+                
+                
+            case .success(let data): update(data: data)
+            case .failure(let error): self.showAlert(with:error.description)
+                
+            }
+            
+        }
+        
+        func update(data : ExchangeDataStruct) {
+            DispatchQueue.main.async {
+                let result = convert(value: self.euroTxtField.text ?? "", rates: data)
+                self.dollarResultLabel.text = result
+            }
+        }
+        
+        func convert(value: String, rates: ExchangeDataStruct) -> String  {
+            guard let rate = rates.rates["USD"] else { return "NA" }
+            guard let valueDoubled = Double(value) else {return "NA"}
+            return String(format:"%.2f",valueDoubled / rate)
+        }
+        
+        //MARK: - ALERT
+        
+        func presentAlert(message : String) {
+            let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alertVC, animated: true, completion: nil)
+        }
+        
     }
 }
 
@@ -146,3 +149,12 @@ extension SystemSoundID {
         }
     }
 }
+
+extension UIViewController {
+    func showAlert(with message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alertController, animated: true)
+    }
+}
+

@@ -21,7 +21,8 @@ class WheatherViewController: UIViewController {
     @IBOutlet weak var chamberyLabel: UILabel!
     
     
-    var weatherServicesAPI_Instance = WeatherServicesAPI()
+    // Model instance template
+    private let httpClient: HTTPClient = HTTPClient()
     
     //MARK: - ViewDidLoad
     
@@ -34,15 +35,15 @@ class WheatherViewController: UIViewController {
     
     func startAPIAndUpdate() {
         
-        weatherServicesAPI_Instance.creationWeatherTaskRequest() { result in
+        guard let urlExchange = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128638,3027421&APPID=106f0db32999088d061a4e175f721a8e&units=metric") else {return}
+        
+        
+        httpClient.request(baseUrl:urlExchange, parameters: nil) { (result :Result<WeatherDataStruct, NetworkErrorEnum>) in
             DispatchQueue.main.async {
-                
                 switch result {
-                case .success(let dataWeatherInstance):
-                    self.updateNewyork(dataWeatherInstance: dataWeatherInstance)
-                    self.updateChambery(dataWeatherInstance: dataWeatherInstance)
-                case .failure : self.presentAlert(message:"error")
-                    
+                case .success(let data) : self.updateNewyork(dataWeatherInstance: data)
+                self.updateChambery(dataWeatherInstance: data)
+                case .failure(let error): self.showAlert(with: error.description)
                 }
             }
         }
@@ -77,9 +78,9 @@ class WheatherViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
-
- // MARK: - COLOR AND ANIMATE
-
+    
+    // MARK: - COLOR AND ANIMATE
+    
     func colorLabel() {
         
         
@@ -89,20 +90,20 @@ class WheatherViewController: UIViewController {
         temperatureLabelNewYork.layer.cornerRadius = 15
         temperatureLabelNewYork.layer.masksToBounds = true
         
-
         
-                
+        
+        
         temperatureLabel.textColor  = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         temperatureLabel.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         temperatureLabel.layer.cornerRadius = 15
         temperatureLabel.layer.masksToBounds = true
         
         
-
+        
         
     }
-
-
-
-
+    
+    
+    
+    
 }

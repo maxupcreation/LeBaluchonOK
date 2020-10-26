@@ -15,7 +15,13 @@ class TraductionViewController: UIViewController {
     
     @IBOutlet weak var resultTranslateTxtField: UITextField!
     
-    var translateGoogleAPIInstance = TranslateGoogleAPI()
+       // Model instance template
+     private let httpClient: HTTPClient = HTTPClient()
+   
+    
+     private  let apikeysInstance = ApiKeys()
+    
+    //https://www.googleapis.com/language/translate/v2?key=AIzaSyAXWTzvN_fMZEWPCviks--4ywiZ-ZT3LCw&source=fr&target=en&format=text&q=
     
     
     //MARK: - ViewDidLoad
@@ -27,18 +33,17 @@ class TraductionViewController: UIViewController {
     
     @IBAction func tappedTranslateButton(_ sender: Any) {
         
-        translateGoogleAPIInstance.createConversionRequestTask(txt:editableTXTField.text) { result in
-            DispatchQueue.main.async {
-                switch result {
-                    
-                case .success(let LanguageTranslateDataInstance) :
-                    self.update(dataInstance: LanguageTranslateDataInstance)
-                case .failure(let error) : self.presentAlert(message: error.localizedDescription)
-                    
-                }
-                
-            }
-        }
+        guard let urlTrad = URL(string: "https://www.googleapis.com/language/translate/v2?" + apikeysInstance.apiKeys + "&source=fr&target=en&format=text&") else {return}
+          
+          
+        httpClient.request(baseUrl:urlTrad, parameters: [("q",editableTXTField.text!)]) { (result :Result<GoogleTranslate,NetworkErrorEnum>) in
+              DispatchQueue.main.async {
+                  switch result {
+                  case .success(let dataInstance): self.update(dataInstance: dataInstance)
+                  case .failure(let error): self.showAlert(with: error.description)
+                  }
+              }
+          }
     }
     
     //MARK: - UDPATE
