@@ -15,11 +15,11 @@ class TraductionViewController: UIViewController {
     
     @IBOutlet weak var resultTranslateTxtField: UITextField!
     
-       // Model instance template
-     private let httpClient: HTTPClient = HTTPClient()
-   
+
+    private let translationService = TranslationService()
     
-     private  let apikeysInstance = ApiKeys()
+    
+    private  let apikeysInstance = ApiKeys()
     
     //https://www.googleapis.com/language/translate/v2?key=AIzaSyAXWTzvN_fMZEWPCviks--4ywiZ-ZT3LCw&source=fr&target=en&format=text&q=
     
@@ -33,21 +33,20 @@ class TraductionViewController: UIViewController {
     
     @IBAction func tappedTranslateButton(_ sender: Any) {
         
-        guard let urlTrad = URL(string: "https://www.googleapis.com/language/translate/v2?" + apikeysInstance.apiKeys + "&source=fr&target=en&format=text&") else {return}
-          
-          
-        httpClient.request(baseUrl:urlTrad, parameters: [("q",editableTXTField.text!)]) { (result :Result<GoogleTranslate,NetworkErrorEnum>) in
-              DispatchQueue.main.async {
-                  switch result {
-                  case .success(let dataInstance): self.update(dataInstance: dataInstance)
-                  case .failure(let error): self.showAlert(with: error.description)
-                  }
-              }
-          }
+        guard let text = editableTXTField.text else{return}
+        
+        translationService.getTranslation(text: text) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let dataInstance): self.update(dataInstance: dataInstance)
+                case .failure(let error): self.showAlert(with: error.description)
+                }
+            }
+        }
     }
     
     //MARK: - UDPATE
-    private func update(dataInstance : GoogleTranslate ){
+    private func update(dataInstance : GoogleTranslateDataStruct ){
         self.resultTranslateTxtField.text = dataInstance.data.translations[0].translatedText
     }
     
@@ -58,6 +57,4 @@ class TraductionViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
-    
-    
 }

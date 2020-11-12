@@ -17,8 +17,8 @@ struct TranslatedString:Decodable {
 } */
 
 
-// MARK: - TranslateDataStruct
-struct GoogleTranslate: Decodable{
+// MARK: - GoogleTranslate
+struct GoogleTranslateDataStruct: Decodable{
     let data: TranslateData
 }
 

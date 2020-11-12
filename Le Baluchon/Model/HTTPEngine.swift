@@ -15,6 +15,7 @@ final class HTTPEngine {
     // MARK: - Properties
     
     private let session: URLSession
+  
     private var task: URLSessionDataTask?
     
     // MARK: - Initialization

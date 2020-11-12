@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class TranslateGoogleAPI {
+/*class TranslateGoogleAPI {
 
     
     //URL SESSION TASK INSTANCE
@@ -70,3 +70,4 @@ class TranslateGoogleAPI {
         task?.resume()
     }
 }
+*/

@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
-// MARK: - ExchangeData
-
+// MARK: - ExchangeDataStruct
 struct ExchangeDataStruct: Decodable {
-     var rates: [String : Double]
-    }
+ var rates: [String : Double]
+}
+
+

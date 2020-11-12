@@ -21,8 +21,7 @@ class WheatherViewController: UIViewController {
     @IBOutlet weak var chamberyLabel: UILabel!
     
     
-    // Model instance template
-    private let httpClient: HTTPClient = HTTPClient()
+    private let weatherService = WeatherService()
     
     //MARK: - ViewDidLoad
     
@@ -35,18 +34,32 @@ class WheatherViewController: UIViewController {
     
     func startAPIAndUpdate() {
         
-        guard let urlExchange = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128638,3027421&APPID=106f0db32999088d061a4e175f721a8e&units=metric") else {return}
-        
-        
-        httpClient.request(baseUrl:urlExchange, parameters: nil) { (result :Result<WeatherDataStruct, NetworkErrorEnum>) in
+        weatherService.getWeather() { result in
             DispatchQueue.main.async {
+                
+                
                 switch result {
+                    
                 case .success(let data) : self.updateNewyork(dataWeatherInstance: data)
                 self.updateChambery(dataWeatherInstance: data)
                 case .failure(let error): self.showAlert(with: error.description)
+                    
+                    
                 }
+                
             }
         }
+        
+        
+        /*    httpClient.request(baseUrl:urlExchange, parameters: nil) { (result :Result<WeatherDataStruct, NetworkErrorEnum>) in
+         DispatchQueue.main.async {
+         switch result {
+         case .success(let data) : self.updateNewyork(dataWeatherInstance: data)
+         self.updateChambery(dataWeatherInstance: data)
+         case .failure(let error): self.showAlert(with: error.description)
+         }
+         }
+         } */
     }
     
     //MARK: - UPDATE VIEW

@@ -215,18 +215,38 @@
                                         <rect key="frame" x="20" y="492.5" width="334" height="236.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Resultat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8y-ki-812">
-                                                <rect key="frame" x="0.0" y="0.0" width="291" height="236.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="238.5" height="236.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="P8y-ki-812" secondAttribute="height" multiplier="119:118" id="eUn-xj-m0o"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNx-UX-77K">
-                                                <rect key="frame" x="303" y="0.0" width="31" height="236.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                <color key="textColor" red="0.39289918660000001" green="1" blue="0.1904430651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-VI-dZE">
+                                                <rect key="frame" x="250.5" y="0.0" width="35" height="236.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="gyn-VI-dZE" secondAttribute="height" multiplier="35:236" id="3ke-Jt-Eu7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="59"/>
+                                                <state key="normal" title="฿">
+                                                    <color key="titleColor" red="1" green="0.36470588240000001" blue="0.027450980390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="bitcoinButtonTapped:" destination="Hv1-54-Are" eventType="touchUpInside" id="gu5-oQ-c2l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nv-eE-4UL">
+                                                <rect key="frame" x="297.5" y="0.0" width="36.5" height="236.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="59"/>
+                                                <state key="normal" title="$">
+                                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="dollarButtonTapped:" destination="Hv1-54-Are" eventType="touchUpInside" id="cMG-XN-5hU"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -234,8 +254,10 @@
                                     <constraint firstItem="I5y-10-9wr" firstAttribute="centerY" secondItem="jMD-cl-e7b" secondAttribute="centerY" id="8Th-uZ-vuW"/>
                                     <constraint firstItem="8GE-Gs-8Uf" firstAttribute="leading" secondItem="jMD-cl-e7b" secondAttribute="leading" constant="20" id="PTM-bb-dOx"/>
                                     <constraint firstAttribute="trailing" secondItem="ISZ-bh-6DA" secondAttribute="trailing" constant="20" id="PZu-tV-oMV"/>
+                                    <constraint firstAttribute="bottom" secondItem="8GE-Gs-8Uf" secondAttribute="bottom" id="boA-vX-zna"/>
                                     <constraint firstItem="ISZ-bh-6DA" firstAttribute="leading" secondItem="jMD-cl-e7b" secondAttribute="leading" constant="20" id="f04-yN-3I9"/>
                                     <constraint firstItem="I5y-10-9wr" firstAttribute="centerX" secondItem="jMD-cl-e7b" secondAttribute="centerX" id="hJF-pp-wmH"/>
+                                    <constraint firstItem="8GE-Gs-8Uf" firstAttribute="top" secondItem="I5y-10-9wr" secondAttribute="bottom" constant="10" id="iqf-M7-9uD"/>
                                     <constraint firstAttribute="trailing" secondItem="8GE-Gs-8Uf" secondAttribute="trailing" constant="20" id="pre-0d-SoS"/>
                                 </constraints>
                             </stackView>
@@ -256,6 +278,8 @@
                     <tabBarItem key="tabBarItem" title="Exchange Rate" image="eurosign.circle.fill" catalog="system" id="WCl-QH-bcN"/>
                     <connections>
                         <outlet property="ButtonOutLet" destination="I5y-10-9wr" id="s9s-cY-IxY"/>
+                        <outlet property="bitcoinButtonOutlet" destination="gyn-VI-dZE" id="JEd-H3-cJJ"/>
+                        <outlet property="dollarButtonOutlet" destination="2nv-eE-4UL" id="b9N-AM-H0k"/>
                         <outlet property="dollarResultLabel" destination="P8y-ki-812" id="9Lo-0u-zUn"/>
                         <outlet property="euroTxtField" destination="q73-ee-keM" id="yX6-9D-FKN"/>
                     </connections>

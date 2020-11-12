@@ -11,14 +11,17 @@ import UIKit
 class ExchangeViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - VARIABLE
+    @IBOutlet weak var dollarButtonOutlet: UIButton!
     
+    @IBOutlet weak var bitcoinButtonOutlet: UIButton!
     @IBOutlet weak var euroTxtField: UITextField!
     
     @IBOutlet weak var ButtonOutLet: UIButton!
     @IBOutlet weak var dollarResultLabel: UILabel!
     
-    // Model instance template
-    private let httpClient: HTTPClient = HTTPClient()
+    var symbols = "USD"
+    
+    private let exchangeService = ExchangeService()
     
     //MARK:- COLOR AND ANIMATE
     
@@ -81,6 +84,9 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        symbols = "USD"
+        bitcoinButtonOutlet.alpha = 0.5
+        dollarButtonOutlet.alpha = 1
         color()
     }
     
@@ -96,24 +102,34 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
     }
     
     //BUTTON CONVERSION
+    
+    @IBAction func bitcoinButtonTapped(_ sender: Any) {
+        symbols = "BTC"
+        bitcoinButtonOutlet.alpha = 1
+        dollarButtonOutlet.alpha = 0.5
+        
+    }
+    
+    @IBAction func dollarButtonTapped(_ sender: Any) {
+        symbols = "USD"
+        bitcoinButtonOutlet.alpha = 0.5
+        dollarButtonOutlet.alpha = 1
+    }
+    
+    
+    
     @IBAction func tappedArrowConversionButton() {
         
         animateTappedButton()
-    
         
-        //CALL NETWORK
-         guard let urlExchange = URL(string: "http://data.fixer.io/api/latest?access_key=79d9d449523d341c9a5dd2d8b3328419&symbols=USD") else {return}
-        
-        
-        httpClient.request(baseUrl:urlExchange, parameters: nil) { (result :Result<ExchangeDataStruct, NetworkErrorEnum>) in
-            switch result {
-                
-                
-            case .success(let data): update(data: data)
-            case .failure(let error): self.showAlert(with:error.description)
-                
+        exchangeService.getExchange(symbols:symbols) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data): update(data: data)
+                case .failure(let error): self.showAlert(with:error.description)
+                    
+                }
             }
-            
         }
         
         func update(data : ExchangeDataStruct) {
@@ -124,9 +140,10 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
         }
         
         func convert(value: String, rates: ExchangeDataStruct) -> String  {
-            guard let rate = rates.rates["USD"] else { return "NA" }
+            guard let rate = rates.rates[symbols] else { return "NA" }
             guard let valueDoubled = Double(value) else {return "NA"}
             return String(format:"%.2f",valueDoubled / rate)
+            
         }
         
         //MARK: - ALERT
