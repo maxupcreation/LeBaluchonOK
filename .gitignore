@@ -85,4 +85,8 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/swift
+=======
+# End of https://www.toptal.com/developers/gitignore/api/swift
+>>>>>>> 66cd2538d7bbcb856357c94a4ebf75952a0e1758
