@@ -13,7 +13,7 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
     //MARK: - VARIABLE
     @IBOutlet weak var dollarButtonOutlet: UIButton!
     
-    @IBOutlet weak var bitcoinButtonOutlet: UIButton!
+    @IBOutlet weak var GBPButtonOutlet: UIButton!
     @IBOutlet weak var euroTxtField: UITextField!
     
     @IBOutlet weak var ButtonOutLet: UIButton!
@@ -29,18 +29,9 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
         
         SystemSoundID.playFileNamed(fileName: "encaissement-dargent-bruitage", withExtenstion: ".mp3")
         
-        //EURO TXT FIELD ANIMATION
-        UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: .autoreverse, animations: {
-            self.euroTxtField.transform = CGAffineTransform(translationX: -0 , y:10)
-            
-        }) { _  in
-            
-            
-            self.euroTxtField.transform = .identity
-        }
         
         //ARROW BUTTON ANIMATION WITH DELAY
-        UIView.animateKeyframes(withDuration: 0.2, delay: 0.2, options: .autoreverse, animations: {
+        UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: .autoreverse, animations: {
             self.ButtonOutLet.transform = CGAffineTransform(translationX: -0 , y:10)
             
         }) { _  in
@@ -49,34 +40,30 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
         }
         
         //RESULT BUTTON ANIMATION WITH DELAY
-        UIView.animateKeyframes(withDuration: 0.2, delay: 0.3, options: .autoreverse, animations: {
-            self.dollarResultLabel.transform = CGAffineTransform(translationX: -0, y: -5)
+        UIView.animateKeyframes(withDuration: 0.2, delay: 0.1, options: .autoreverse, animations: {
+            self.dollarResultLabel.transform = CGAffineTransform(translationX: -0, y: 5)
             
         }) { _  in
             self.dollarResultLabel.transform = .identity
         }
     }
     
+    //************//COLOR\\************
     
     func color() {
         self.ButtonOutLet.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         self.euroTxtField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.euroTxtField.textColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        self.euroTxtField.textColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         self.euroTxtField.layer.cornerRadius = 20
         
-        self.dollarResultLabel.backgroundColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
-        self.dollarResultLabel.layer.cornerRadius = 20
+       
         self.dollarResultLabel.layer.masksToBounds = true
-    }
-    
-    func successChangeColorAnimate(){
-        UIView.animate(withDuration: 0.5) {
-            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4864498352, green: 0.8406358007, blue: 0, alpha: 1)
-        }
-        UIView.animate(withDuration: 1) {
-            self.ButtonOutLet.tintColor = #colorLiteral(red: 0.4578476902, green: 0.6071662624, blue: 0.818062356, alpha: 1)
-        }
+        self.dollarResultLabel.layer.cornerRadius = 20
+ 
+        GBPButtonOutlet.setTitleColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1), for: .normal)
+        dollarButtonOutlet.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
+        
     }
     
     //MARK: - ViewDidLoad
@@ -85,8 +72,9 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         symbols = "USD"
-        bitcoinButtonOutlet.alpha = 0.5
+        GBPButtonOutlet.alpha = 0.5
         dollarButtonOutlet.alpha = 1
+        
         color()
     }
     
@@ -103,17 +91,25 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
     
     //BUTTON CONVERSION
     
-    @IBAction func bitcoinButtonTapped(_ sender: Any) {
-        symbols = "BTC"
-        bitcoinButtonOutlet.alpha = 1
+    @IBAction func GBPButtonTapped(_ sender: Any) {
+        symbols = "GBP"
+        
+        GBPButtonOutlet.alpha = 1
         dollarButtonOutlet.alpha = 0.5
         
+        GBPButtonOutlet.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
+        dollarButtonOutlet.setTitleColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1), for: .normal)
     }
     
     @IBAction func dollarButtonTapped(_ sender: Any) {
         symbols = "USD"
-        bitcoinButtonOutlet.alpha = 0.5
+        
+        GBPButtonOutlet.alpha = 0.5
         dollarButtonOutlet.alpha = 1
+        
+        GBPButtonOutlet.setTitleColor(#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1), for: .normal)
+        dollarButtonOutlet.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
+        
     }
     
     
@@ -143,7 +139,6 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
             guard let rate = rates.rates[symbols] else { return "NA" }
             guard let valueDoubled = Double(value) else {return "NA"}
             return String(format:"%.2f",valueDoubled / rate)
-            
         }
         
         //MARK: - ALERT
@@ -153,7 +148,6 @@ class ExchangeViewController: UIViewController, UITextFieldDelegate {
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alertVC, animated: true, completion: nil)
         }
-        
     }
 }
 

@@ -11,7 +11,7 @@ import XCTest
 
 class WeatherTests: XCTestCase {
     //CORRECT
-    func testDataWeather_WhenCallWeatherNetWork_ThenReturnValueWithDataStruct() {
+    func testDataWeather_WhenCallExchangeNetWork_ThenShouldReturnCorrectValue() {
         let fakeSession = URLSessionFake(data: FakeResponseData.weathersCorrectData, response: FakeResponseData.responseOK, error: nil)
         
         let httpEngine = HTTPEngine(session: fakeSession)
@@ -30,7 +30,7 @@ class WeatherTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     //ERROR
-    func testErrorWeather_WhenUrlWeatherIsBroken_ThenShouldReturnAnError() {
+    func testErrorWeather_WhenCorrectDataAndKOResponseIsPassed_ThenShouldReturnAnError() {
         let fakeSession = URLSessionFake(data: FakeResponseData.weathersCorrectData, response: FakeResponseData.responseKO, error: FakeResponseData.error)
         
         let httpEngine = HTTPEngine(session: fakeSession)
@@ -49,7 +49,7 @@ class WeatherTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testErrorWeather_WhenIncorrectDataAndCorrectResponseIsPassed_ThenShouldReturnAnError() {
+    func testErrorWeather_WhenIncorrectDataAndKOResponseIsPassed_ThenShouldReturnAnError() {
            let fakeSession = URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseKO, error: FakeResponseData.error)
            
            let httpEngine = HTTPEngine(session: fakeSession)
@@ -67,7 +67,6 @@ class WeatherTests: XCTestCase {
            }
            wait(for: [expectation], timeout: 0.01)
        }
-    
 }
 
 

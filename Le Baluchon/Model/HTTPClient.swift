@@ -23,7 +23,7 @@ final class HTTPClient {
     func request<T: Decodable>(baseUrl: URL, parameters: [(String, Any)]?, callback: @escaping (Result<T,NetworkErrorEnum>) -> Void) {
         httpEngine.request(baseUrl: baseUrl, parameters: parameters) { data, response, error in
             guard let data = data, error == nil else {
-                callback(.failure(.undecodableData))
+                callback(.failure(.noData))
                 return
             }
             guard let response = response, response.statusCode == 200 else {

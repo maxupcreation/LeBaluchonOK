@@ -19,7 +19,7 @@ class ExchangeServiceTests: XCTestCase {
         let exchangeService = ExchangeService(httpClient: httpClient)
         
         let expectation = XCTestExpectation(description: "Waiting")
-        exchangeService.getExchange { (result) in
+        exchangeService.getExchange(symbols:"") { (result) in
             guard case .success(let data) = result else {
                 XCTFail("testDataExchange_WhenCallExchangeNetWork_ThenReturnValueWithDataStruct")
                 return
@@ -30,7 +30,7 @@ class ExchangeServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testGetExchangeMethod_WhenCorrectDataAndIcorrectResponseIsPassed_ThenShouldReturnAnError() {
+    func testGetExchangeMethod_WhenCorrectDataAndKOResponseIsPassed_ThenShouldReturnAnError() {
         let fakeSession = URLSessionFake(data: FakeResponseData.exchangeCorrectData, response: FakeResponseData.responseKO, error: nil)
         
         let httpEngine = HTTPEngine(session: fakeSession)
@@ -38,7 +38,7 @@ class ExchangeServiceTests: XCTestCase {
         let exchangeService = ExchangeService(httpClient: httpClient)
         
         let expectation = XCTestExpectation(description: "Waiting")
-        exchangeService.getExchange { (result) in
+        exchangeService.getExchange(symbols:"") { (result) in
             guard case .failure(let error) = result else {
                 XCTFail("testDataExchange_WhenCallExchangeNetWork_ThenReturnValueWithDataStruct")
                 return
@@ -49,7 +49,7 @@ class ExchangeServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testGetExchangeMethod_WhenIncorrectDataAndCorrectResponseIsPassed_ThenShouldReturnAnError() {
+    func testGetExchangeMethod_WhenIncorrectDataAndOKResponseIsPassed_ThenShouldReturnAnError() {
         let fakeSession = URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
         
         let httpEngine = HTTPEngine(session: fakeSession)
@@ -57,7 +57,7 @@ class ExchangeServiceTests: XCTestCase {
         let exchangeService = ExchangeService(httpClient: httpClient)
         
         let expectation = XCTestExpectation(description: "Waiting")
-        exchangeService.getExchange { (result) in
+        exchangeService.getExchange(symbols:"") { (result) in
             guard case .failure(let error) = result else {
                 XCTFail("testDataExchange_WhenCallExchangeNetWork_ThenReturnValueWithDataStruct")
                 return

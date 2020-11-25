@@ -1,0 +1,89 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": -75.5,
+                "lat": 43
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1601636450,
+                "sunset": 1601678479
+            },
+            "weather": [
+                {
+                    "id": 500,
+                    "main": "Rain",
+                    "description": "light rain",
+                    "icon": "10d"
+                }
+            ],
+            "main": {
+                "temp": 12.77,
+                "feels_like": 12.28,
+                "temp_min": 10.56,
+                "temp_max": 15,
+                "pressure": 1012,
+                "humidity": 85
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 0.89,
+                "deg": 238
+            },
+            "clouds": {
+                "all": 65
+            },
+            "dt": 1601655201,
+            "id": 5128638,
+            "name": "New York"
+        },
+        {
+            "coord": {
+                "lon": 5.92,
+                "lat": 45.67
+            },
+            "sys": {
+                "country": "FR",
+                "timezone": 7200,
+                "sunrise": 1601616963,
+                "sunset": 1601658892
+            },
+            "weather": [
+                {
+                    "id": 502,
+                    "main": "Rain",
+                    "description": "heavy intensity rain",
+                    "icon": "10d"
+                },
+                {
+                    "id": 701,
+                    "main": "Mist",
+                    "description": "mist",
+                    "icon": "50d"
+                }
+            ],
+            "main": {
+                "temp": 12.12,
+                "feels_like": 11.31,
+                "temp_min": 11.11,
+                "temp_max": 13,
+                "pressure": 988,
+                "humidity": 100
+            },
+            "visibility": 2300,
+            "wind": {
+                "speed": 2.1,
+                "deg": 40
+            },
+            "clouds": {
+                "all": 100
+            },
+            "dt": 1601655116,
+            "id": 3027421,
+            "name": "Arrondissement de Chambéry"
+        }
+    ]
+}

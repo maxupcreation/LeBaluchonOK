@@ -15,7 +15,6 @@ class TranslationService {
     }
 //MARK:- Translation
     func getTranslation(text: String, callback : @escaping (Result<GoogleTranslateDataStruct,NetworkErrorEnum>) -> Void ) {
-        
         guard let baseUrl =  URL(string:"https://www.googleapis.com/language/translate/v2") else {return}
         let parameters = [("source","fr"),("target","en"),("format","text"),("key",ApiKeys.googleKey),("q",text)]
         

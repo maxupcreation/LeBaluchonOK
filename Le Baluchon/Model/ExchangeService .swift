@@ -16,7 +16,6 @@ class ExchangeService {
     
     //http://data.fixer.io/api/latest?access_key=79d9d449523d341c9a5dd2d8b3328419&symbols=USD
     func getExchange(symbols : String, callback : @escaping (Result<ExchangeDataStruct,NetworkErrorEnum>) -> Void ) {
-        
         //CALL NETWORK
         guard let urlExchange = URL(string: "http://data.fixer.io/api/latest?") else {return}
      let parameters = [("access_key","79d9d449523d341c9a5dd2d8b3328419"),("symbols", symbols)]

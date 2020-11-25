@@ -49,17 +49,6 @@ class WheatherViewController: UIViewController {
                 
             }
         }
-        
-        
-        /*    httpClient.request(baseUrl:urlExchange, parameters: nil) { (result :Result<WeatherDataStruct, NetworkErrorEnum>) in
-         DispatchQueue.main.async {
-         switch result {
-         case .success(let data) : self.updateNewyork(dataWeatherInstance: data)
-         self.updateChambery(dataWeatherInstance: data)
-         case .failure(let error): self.showAlert(with: error.description)
-         }
-         }
-         } */
     }
     
     //MARK: - UPDATE VIEW
